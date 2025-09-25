@@ -17,7 +17,7 @@
     </div>
     <div id="welcome-text">
       <p>
-        Welcome to my webpage.<br>
+        My name is Seth Collinsworth.<br>
         I am a student in the
         <a href="https://www.geo.txstate.edu/" target="_blank"> Geography Department</a> at
         <a href="https://www.txst.edu/" target="_blank">Texas State University</a>.</p>
@@ -33,6 +33,20 @@
         </ol>
       </p>
     </div>
+  </div>
+  <div id="copyright">
+    <script>
+      // Creates a variable named today. The value of this varibale is filled
+      // the current date and time because there are no parameters.
+      var today = new Date();
+      // Creates a new variable named year. The value of this variable is set to
+      // the year stored in the year variable, which is accessed via the
+      // getFullYear method.
+      var year = today.getFullYear();
+      // This prints a line onto our webpage which says Copyright, with a
+      // copyright symbol, and the value stored in the year variable.
+      document.writeln("Copyright &copy; " + year);
+    </script>
   </div>
 </body>
 </html>
