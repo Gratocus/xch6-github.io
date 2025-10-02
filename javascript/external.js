@@ -1,10 +1,10 @@
 //user_name = window.prompt("Please enter your name", "Type your name here");
 //document.getElementById('username').innerHTML = user_name;
 var webmaps = [
-  ["Nullschool", "https://earth.nullschool.net/#current/wind/surface/level/orthographic",
-  "The user interface is very intuitive. I can easily locate looking around the globe and hovering over buttons tells me what they do. I would not change anything, because the application works well and provides accurate information for anybody to use. "],
-  ["PewResearch", "https://www.pewresearch.org/religious-landscape-study/",
-   "The user interface is intuitive. I can easily find and select areas that I want to find data about. I wouldn’t change anything because the map is very well made and is interactive to the user’s mouse. I would consider showing the data in map form; however this may not be seen as necessary to the creators"],
+  ["Nullschool", "https://earth.nullschool.net/#current/wind/surface/level/orthographic"],
+  ["The user interface is very intuitive. I can easily locate looking around the globe and hovering over buttons tells me what they do. I would not change anything, because the application works well and provides accurate information for anybody to use."],
+  ["PewResearch", "https://www.pewresearch.org/religious-landscape-study/"],
+  ["The user interface is intuitive. I can easily find and select areas that I want to find data about. I would not change anything because the map is very well made and is interactive to the mouse of the user. I would consider showing the data in map form; however this may not be seen as necessary to the creators"],
 ];
 
 function welcome()
@@ -21,14 +21,23 @@ document.write(welcome());
 function webmap_table()
 {
   document.write("<table width=100%>");
-  for (var row=0; row < webmaps.length; row++)
+  for (var x=0; x < webmaps.length; x++)
   {
-    document.write("<tr>");
-    for (var column=0; column < webmaps[0].length; column++)
+    if (webmaps[x].length % 2 == 0)
     {
-      document.write("<td>" + webmaps[row][column] + "</td>");
+      document.write("<tr>");
+      for (var column=0; column < webmaps[0].length; column++)
+      {
+        document.write("<td>" + webmaps[x][column] + "</td>");
+      }
+      document.write("</tr>");
+    } else {
+      document.write("<tr>");
+      document.write("<td>" + webmaps[x] + "</td>");
+      document.write("<td>" + "</td>");
+      document.write("</tr>");
     }
-    document.write("</tr>");
+
   }
   document.write("</table>");
   return "";
