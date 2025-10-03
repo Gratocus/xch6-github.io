@@ -1,0 +1,1 @@
+mapbox_access_token = 'pk.eyJ1Ijoic2V0aGNvbGxpbnN3b3J0aCIsImEiOiJjbWdhM2k3azIwZ3VsMmpvbHp5cTk1OGkzIn0.INPSq5ewHi1Tdq0UEnvjhg'
