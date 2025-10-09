@@ -18,26 +18,21 @@ function welcome()
 }
 document.write(welcome());
 
-function webmap_table()
-{
+function webmap_table() {
   document.write("<table width=100%>");
-  for (var x=0; x < webmaps.length; x++)
-  {
-    if (webmaps[x].length % 2 == 0)
-    {
-      document.write("<tr>");
-      for (var column=0; column < webmaps[0].length; column++)
-      {
-        document.write("<td>" + webmaps[x][column] + "</td>");
+  for (var row = 0; row < webmaps.length; row++) {
+    document.write("<tr>");
+    if (row % 2 == 0) { // For even rows (0-based index)
+      for (var column = 0; column < webmaps[row].length; column++) {
+        document.write("<td>" + webmaps[row][column] + "</td>");
       }
-      document.write("</tr>");
-    } else {
-      document.write("<tr>");
-      document.write("<td>" + webmaps[x] + "</td>");
-      document.write("<td>" + "</td>");
-      document.write("</tr>");
+    } else { // For odd rows
+      document.write("<td colspan='2'>" + webmaps[row][0] + "</td>");
     }
-
+    document.write("</tr>");
+    if (row % 2 == 1) { // Only after the description rows
+      document.write("<tr><td colspan='2'>&nbsp;</td></tr>");
+    }
   }
   document.write("</table>");
   return "";

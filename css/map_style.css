@@ -1,5 +1,9 @@
-.leaflet-popup-content-wrapper,
+/* .leaflet-popup-content-wrapper,
 .leaflet-popup-tip
 {
 background: yellow;
+} */
+
+.custom-popup .leaflet-popup-content-wrapper {
+  background-color: #92c5de;
 }

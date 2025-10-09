@@ -71,30 +71,144 @@
       ]);
       mymap.fitBounds(poly.getBounds());
       }).addTo(mymap);
-      /*
-      var marker = L.marker([51.5, -0.09]).addTo(mymap);
-      var circle = L.circle([51.508, -0.11], { color: 'red', fillColor: '#f03', fillOpacity: 0.5, radius: 500}).addTo(mymap);
-      var polygon = L.polygon([[51.509, -0.08], [51.503, -0.06], [51.51, -0.047]]).addTo(mymap);
-      var polyline = L.polyline([[51.506, -0.08], [51.502, -0.06], [51.507, -0.047]]).addTo(mymap);
-      marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
-      circle.bindPopup("I am a circle.");
-      polygon.bindPopup("I am a polygon.");
-      marker.on('click', function(e){ mymap.setView(e.latlng, 14);})
-      circle.on('click', function(e){ mymap.setView(e.latlng, 13);})
-      polygon.on('click', function(e){ mymap.setView(e.latlng, 13);})
-      var ZoomViewer = L.Control.extend({ onAdd: function(){
-          var gauge = L.DomUtil.create('div');
-          gauge.style.width = '200px';
-          gauge.style.background = 'rgba(255,255,255,0.5)';
-          gauge.style.textAlign = 'left';
-          mymap.on('zoomstart zoom zoomend', function(ev){
-            gauge.innerHTML = 'Zoom level: ' + mymap.getZoom();
-          })
-          return gauge;
-        }
-      });
-      (new ZoomViewer).addTo(mymap);
-      */
+
+      var tajIcon = L.icon({
+        iconUrl: 'https://cdn0.iconfinder.com/data/icons/world-monument/24/_taj_mahal_landmark_world_monument_monument-512.png',
+        iconSize: [50, 50],
+      })
+      var wallIcon = L.icon({
+        iconUrl: 'https://cdn3.iconfinder.com/data/icons/landmark-outline/428/china_travel_mountain_wall_beijing_landmark_great_chinese_tourism_architecture-512.png',
+        iconSize: [50, 50],
+      })
+      var petraIcon = L.icon({
+        iconUrl: 'https://cdn2.iconfinder.com/data/icons/landmark-21/64/Petra-jordan-gate-architecture-landmark-512.png',
+        iconSize: [50, 50],
+      })
+      var redeemerIcon = L.icon({
+        iconUrl: 'https://cdn3.iconfinder.com/data/icons/landmark-outline/447/brazil_christ_jesus_statue_rio_religion_christianity_landmark_travel-512.png',
+        iconSize: [50, 50],
+      })
+      var machuIcon = L.icon({
+        iconUrl: 'https://cdn2.iconfinder.com/data/icons/landmark-21/64/peru-machu-picchu-architecture-city-512.png',
+        iconSize: [50, 50],
+      })
+      var itzaIcon = L.icon({
+        iconUrl: 'https://cdn3.iconfinder.com/data/icons/landmark-outline/437/chichen_itza_mayan_stone_travel_temple_pyramid_maya_tourism_landmark_mexico-512.png',
+        iconSize: [50, 50],
+      })
+      var colosseumIcon = L.icon({
+        iconUrl: 'https://cdn3.iconfinder.com/data/icons/landmark-outline/430/colosseum_coliseum_landmark_rome_architecture_roman_arena_gladiator_stadium-512.png',
+        iconSize: [50, 50],
+      })
+      var tajContent = '<div>'+
+				      '<h1 id=popUpHeader><b>India\'s Taj Mahal</b></h1>'+
+				      '<div id=popUpBody>'+
+              '<p>'+
+              'The Taj Mahal is a white marble mausoleum in Agra, India, built by Mughal Emperor Shah Jahan for his wife Mumtaz Mahal, serving as a symbol of love and the finest example of Mughal architecture.'+
+              '</p>'+
+              '<img src=images/taj.jpg  width=300px height=200px />'+
+              '</div>'+
+				      '</div>';
+      var wallContent = '<div>'+
+				      '<h1 id=popUpHeader><b>Great Wall of China</b></h1>'+
+				      '<div id=popUpBody>'+
+              '<p>'+
+              'The Great Wall of China is a series of fortifications in China. They were built across the historical northern borders of ancient Chinese states and Imperial China as protection against various nomadic groups from the Eurasian Steppe.'+
+              '</p>'+
+              '<img src=images/wall.jpg  width=300px height=200px />'+
+              '</div>'+
+				      '</div>';
+      var petraContent = '<div>'+
+              '<h1 id=popUpHeader><b>Petra in Jordan</b></h1>'+
+              '<div id=popUpBody>'+
+              '<p>'+
+              'Petra is an ancient rose-red city in Jordan, renowned for its architecture carved into sandstone cliffs and its strategic importance as a trade center.'+
+              '</p>'+
+              '<img src=images/petra.jpg  width=300px height=200px />'+
+              '</div>'+
+              '</div>';
+      var redeemerContent = '<div>'+
+				      '<h1 id=popUpHeader><b>Brazil\'s statue of Christ the Redeemer</b></h1>'+
+				      '<div id=popUpBody>'+
+              '<p>'+
+              'Christ the Redeemer is an Art Deco statue of Jesus in Rio de Janeiro, Brazil, created by French-Polish sculptor Paul Landowski and built by Brazilian engineer Heitor da Silva Costa, in collaboration with French engineer Albert Caquot. Romanian sculptor Gheorghe Leonida sculpted the face.'+
+              '</p>'+
+              '<img src=images/redeemer.jpg  width=300px height=200px />'+
+              '</div>'+
+				      '</div>';
+      var machuContent = '<div>'+
+  			      '<h1 id=popUpHeader><b>Peru\'s Machu Picchu</b></h1>'+
+  			      '<div id=popUpBody>'+
+              '<p>'+
+              'Machu Picchu is a 15th-century Inca citadel in the Andes Mountains of Peru, famous as the Lost City of the Incas for its advanced architecture, intricate stonework, and stunning natural setting.'+
+              '</p>'+
+              '<img src=images/machu.jpg  width=300px height=200px />'+
+              '</div>'+
+  			      '</div>';
+      var itzaContent = '<div>'+
+  			      '<h1 id=popUpHeader><b>Mexico\'s Chichen Itza Pyramid</b></h1>'+
+  			      '<div id=popUpBody>'+
+              '<p>'+
+              'Chichén Itzá is a complex of Mayan ruins on Mexico\'s Yucatán Peninsula. A massive step pyramid, known as El Castillo or Temple of Kukulcan, dominates the ancient city, which thrived from around 600 A.D. to the 1200s.'+
+              '</p>'+
+              '<img src=images/itza.jpg  width=300px height=200px />'+
+              '</div>'+
+  			      '</div>';
+      var colosseumContent = '<div>'+
+				      '<h1 id=popUpHeader><b>The Colosseum in Rome</b></h1>'+
+				      '<div id=popUpBody>'+
+              '<p>'+
+              'The Colosseum is an elliptical amphitheatre in the centre of the city of Rome, Italy, just east of the Roman Forum. It is the largest ancient amphitheatre ever built, and is the largest standing amphitheatre in the world.'+
+              '</p>'+
+              '<img src=images/colosseum.jpg  width=300px height=200px />'+
+              '</div>'+
+				      '</div>';
+
+      var tajMarker = L.marker([27.174961, 78.042385], {icon: tajIcon}).addTo(mymap)
+          .bindPopup(tajContent, {className: 'custom-popup'})
+          .openPopup();
+      var wallMarker = L.marker([40.334245, 116.477652], {icon: wallIcon}).addTo(mymap)
+          .bindPopup(wallContent, {className: 'custom-popup'})
+          .openPopup();
+      var petraMarker = L.marker([30.328611, 35.441944], {icon: petraIcon}).addTo(mymap)
+          .bindPopup(petraContent, {className: 'custom-popup'})
+          .openPopup();
+      var redeemerMarker = L.marker([-22.951389, -43.2108334], {icon: redeemerIcon}).addTo(mymap)
+          .bindPopup(redeemerContent, {className: 'custom-popup'})
+          .openPopup();
+      var machuMarker = L.marker([-13.163056, -72.545556], {icon: machuIcon}).addTo(mymap)
+          .bindPopup(machuContent, {className: 'custom-popup'})
+          .openPopup();
+      var itzaMarker = L.marker([20.682778, -88.569167], {icon: itzaIcon}).addTo(mymap)
+          .bindPopup(itzaContent, {className: 'custom-popup'})
+          .openPopup();
+      var colosseumMarker = L.marker([41.890169, 12.492269], {icon: colosseumIcon}).addTo(mymap)
+          .bindPopup(colosseumContent, {className: 'custom-popup'})
+          .openPopup();
+
+      // var marker = L.marker([51.5, -0.09]).addTo(mymap);
+      // var circle = L.circle([51.508, -0.11], { color: 'red', fillColor: '#f03', fillOpacity: 0.5, radius: 500}).addTo(mymap);
+      // var polygon = L.polygon([[51.509, -0.08], [51.503, -0.06], [51.51, -0.047]]).addTo(mymap);
+      // var polyline = L.polyline([[51.506, -0.08], [51.502, -0.06], [51.507, -0.047]]).addTo(mymap);
+      // marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
+      // circle.bindPopup("I am a circle.");
+      // polygon.bindPopup("I am a polygon.");
+      // marker.on('click', function(e){ mymap.setView(e.latlng, 14);})
+      // circle.on('click', function(e){ mymap.setView(e.latlng, 13);})
+      // polygon.on('click', function(e){ mymap.setView(e.latlng, 13);})
+      // var ZoomViewer = L.Control.extend({ onAdd: function(){
+      //     var gauge = L.DomUtil.create('div');
+      //     gauge.style.width = '200px';
+      //     gauge.style.background = 'rgba(255,255,255,0.5)';
+      //     gauge.style.textAlign = 'left';
+      //     mymap.on('zoomstart zoom zoomend', function(ev){
+      //       gauge.innerHTML = 'Zoom level: ' + mymap.getZoom();
+      //     })
+      //     return gauge;
+      //   }
+      // });
+      // (new ZoomViewer).addTo(mymap);
+
       mymap.setView([0,0], 1);
       </script>
     </div>
